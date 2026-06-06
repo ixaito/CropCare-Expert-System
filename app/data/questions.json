@@ -1,0 +1,107 @@
+[
+  {
+    "id": "crop_type",
+    "text": "Which crop are you diagnosing?",
+    "type": "select",
+    "options": ["Rice", "Tomato", "Chilli", "Brinjal", "Leafy vegetable", "Other"]
+  },
+  {
+    "id": "leaf_yellowing",
+    "text": "Do you notice yellowing leaves?",
+    "type": "boolean"
+  },
+  {
+    "id": "yellowing_pattern",
+    "text": "Where is the yellowing mostly seen?",
+    "type": "select",
+    "options": ["Older lower leaves", "Young upper leaves", "Between leaf veins", "Whole plant", "Not sure"],
+    "depends_on": {"leaf_yellowing": true}
+  },
+  {
+    "id": "leaf_spots",
+    "text": "Are there visible spots or lesions on the leaves?",
+    "type": "boolean"
+  },
+  {
+    "id": "spot_colour",
+    "text": "What colour are the spots or lesions?",
+    "type": "select",
+    "options": ["Black", "Brown", "Yellow halo", "Water-soaked", "White/grey powder", "Not sure"],
+    "depends_on": {"leaf_spots": true}
+  },
+  {
+    "id": "lesions_spreading",
+    "text": "Are the spots spreading to more leaves?",
+    "type": "boolean",
+    "depends_on": {"leaf_spots": true}
+  },
+  {
+    "id": "powdery_growth",
+    "text": "Is there white or grey powdery growth on the leaves?",
+    "type": "boolean"
+  },
+  {
+    "id": "wilting",
+    "text": "Is the plant wilting or drooping?",
+    "type": "boolean"
+  },
+  {
+    "id": "soil_moisture",
+    "text": "What is the soil moisture condition?",
+    "type": "select",
+    "options": ["Too wet", "Normal", "Too dry", "Not sure"],
+    "depends_on": {"wilting": true}
+  },
+  {
+    "id": "root_condition",
+    "text": "If checked, do the roots look dark, soft, or rotten?",
+    "type": "select",
+    "options": ["Yes", "No", "Not checked"],
+    "depends_on": {"wilting": true}
+  },
+  {
+    "id": "pest_presence",
+    "text": "Do you see insects, eggs, bite marks, or sticky residue?",
+    "type": "boolean"
+  },
+  {
+    "id": "pest_sign",
+    "text": "Which pest sign is most visible?",
+    "type": "select",
+    "options": ["Insects visible", "Bite holes", "Sticky residue", "Leaf curling", "Eggs under leaves", "Not sure"],
+    "depends_on": {"pest_presence": true}
+  },
+  {
+    "id": "leaf_curling",
+    "text": "Are the leaves curling, twisted, or deformed?",
+    "type": "boolean"
+  },
+  {
+    "id": "mosaic_pattern",
+    "text": "Do leaves show a mosaic/mottled light-and-dark green pattern?",
+    "type": "boolean"
+  },
+  {
+    "id": "growth_stunted",
+    "text": "Is the plant growth stunted or unusually slow?",
+    "type": "boolean"
+  },
+  {
+    "id": "weather_condition",
+    "text": "What recent weather or environment best matches the crop area?",
+    "type": "select",
+    "options": ["High humidity/wet weather", "Hot and dry", "Heavy rain", "Poor air circulation", "Normal", "Not sure"]
+  },
+  {
+    "id": "watering_pattern",
+    "text": "How is the watering/drainage condition?",
+    "type": "select",
+    "options": ["Overwatered/poor drainage", "Normal", "Underwatered", "Not sure"]
+  },
+  {
+    "id": "severity",
+    "text": "How severe is the problem now?",
+    "type": "select",
+    "options": ["Mild", "Moderate", "Severe", "Not sure"]
+  }
+]

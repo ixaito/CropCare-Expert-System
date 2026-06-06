@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Consultation #{{ consultation.id }}</p>
+    <h1>{{ result.decision }}</h1>
+    <p class="lead">Crop: {{ consultation.crop_type }} · Date: {{ consultation.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+  </div>
+  <div class="hero-actions">
+    <a class="button secondary" href="/consultations/{{ consultation.id }}/export.json">Export JSON</a>
+    <a class="button secondary" href="/consultations/{{ consultation.id }}/export.csv">Export CSV</a>
+  </div>
+</section>
+
+<section class="panel result-panel">
+  <div class="confidence-row">
+    <span>Confidence</span>
+    <span class="confidence">{{ result.confidence }}%</span>
+  </div>
+  <p>{{ result.summary }}</p>
+  <h2>Recommendation</h2>
+  <p>{{ result.recommendation }}</p>
+  <h2>Severity note</h2>
+  <p>{{ result.severity_note }}</p>
+  <h2>Expert note</h2>
+  <p>{{ result.expert_note }}</p>
+</section>
+
+<section class="diagnosis-layout">
+  <div class="panel">
+    <h2>Top rule matches</h2>
+    {% if result.top_matches %}
+      {% for match in result.top_matches %}
+        <div class="match-card">
+          <p class="match-title">{{ match.name }} — {{ match.confidence }}%</p>
+          <p class="muted">{{ match.description }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="muted">No strong rule match found.</p>
+    {% endif %}
+  </div>
+
+  <div class="panel">
+    <h2>User answers</h2>
+    <div class="answer-list">
+      {% for key, value in answers.items() %}
+        <div><span>{{ key }}</span><span>{{ value }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

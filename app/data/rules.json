@@ -1,0 +1,109 @@
+[
+  {
+    "id": "fungal_leaf_spot",
+    "name": "Possible Fungal Leaf Spot / Leaf Blight",
+    "description": "Fungal disease is likely when leaf spots spread during wet or humid conditions.",
+    "base_recommendation": "Remove heavily infected leaves, avoid overhead watering, improve air circulation, and apply a suitable labelled fungicide if symptoms continue.",
+    "consult_expert_when": "If the disease spreads quickly, affects many plants, or the crop is commercially valuable, consult an agricultural officer or plant pathologist.",
+    "conditions": [
+      {"field": "leaf_spots", "value": true, "weight": 25},
+      {"field": "spot_colour", "value_in": ["Black", "Brown"], "weight": 20},
+      {"field": "lesions_spreading", "value": true, "weight": 20},
+      {"field": "weather_condition", "value_in": ["High humidity/wet weather", "Heavy rain"], "weight": 20},
+      {"field": "watering_pattern", "value": "Overwatered/poor drainage", "weight": 10}
+    ]
+  },
+  {
+    "id": "powdery_mildew",
+    "name": "Possible Powdery Mildew",
+    "description": "Powdery mildew is likely when white or grey powdery growth appears on leaves, especially with poor airflow.",
+    "base_recommendation": "Prune crowded leaves, improve spacing and airflow, avoid wetting leaves, and use an appropriate fungicide when necessary.",
+    "consult_expert_when": "Consult an expert if powdery growth keeps returning or spreads to young plants.",
+    "conditions": [
+      {"field": "powdery_growth", "value": true, "weight": 40},
+      {"field": "spot_colour", "value": "White/grey powder", "weight": 20},
+      {"field": "weather_condition", "value_in": ["Poor air circulation", "High humidity/wet weather"], "weight": 20},
+      {"field": "leaf_curling", "value": true, "weight": 10}
+    ]
+  },
+  {
+    "id": "bacterial_blight",
+    "name": "Possible Bacterial Blight",
+    "description": "Bacterial blight is possible when water-soaked spots or yellow halos appear after wet weather.",
+    "base_recommendation": "Remove infected plant parts, avoid overhead watering, keep tools clean, and avoid working with plants when foliage is wet.",
+    "consult_expert_when": "Seek expert confirmation if many leaves show water-soaked lesions or yellow halos.",
+    "conditions": [
+      {"field": "leaf_spots", "value": true, "weight": 20},
+      {"field": "spot_colour", "value_in": ["Water-soaked", "Yellow halo"], "weight": 35},
+      {"field": "weather_condition", "value_in": ["Heavy rain", "High humidity/wet weather"], "weight": 20},
+      {"field": "lesions_spreading", "value": true, "weight": 15}
+    ]
+  },
+  {
+    "id": "root_rot",
+    "name": "Possible Root Rot / Water Stress",
+    "description": "Root rot or water stress is possible when plants wilt while soil is too wet or poorly drained.",
+    "base_recommendation": "Improve drainage, reduce watering frequency, remove severely affected plants, and avoid reusing infected soil without treatment.",
+    "consult_expert_when": "Consult an expert if roots are dark/soft or the plant collapses suddenly.",
+    "conditions": [
+      {"field": "wilting", "value": true, "weight": 25},
+      {"field": "soil_moisture", "value": "Too wet", "weight": 25},
+      {"field": "watering_pattern", "value": "Overwatered/poor drainage", "weight": 25},
+      {"field": "root_condition", "value": "Yes", "weight": 25}
+    ]
+  },
+  {
+    "id": "nutrient_deficiency",
+    "name": "Possible Nutrient Deficiency",
+    "description": "Nutrient deficiency is likely when yellowing, pale veins, and slow growth occur without strong disease signs.",
+    "base_recommendation": "Apply balanced fertilizer according to crop needs, check soil pH, improve organic matter, and monitor new growth after treatment.",
+    "consult_expert_when": "Seek soil testing or expert advice if yellowing continues after proper fertilization.",
+    "conditions": [
+      {"field": "leaf_yellowing", "value": true, "weight": 25},
+      {"field": "yellowing_pattern", "value_in": ["Older lower leaves", "Between leaf veins", "Whole plant"], "weight": 20},
+      {"field": "growth_stunted", "value": true, "weight": 20},
+      {"field": "leaf_spots", "value": false, "weight": 10},
+      {"field": "pest_presence", "value": false, "weight": 10}
+    ]
+  },
+  {
+    "id": "pest_infestation",
+    "name": "Possible Pest Infestation",
+    "description": "Pest infestation is likely when insects, bite holes, sticky residue, eggs, or curling are present.",
+    "base_recommendation": "Inspect leaf undersides, remove affected leaves, use physical control where possible, and apply suitable pest control based on the identified pest.",
+    "consult_expert_when": "Consult an expert if pests spread rapidly or if you are unsure which pest control is safe for the crop.",
+    "conditions": [
+      {"field": "pest_presence", "value": true, "weight": 35},
+      {"field": "pest_sign", "value_in": ["Insects visible", "Bite holes", "Sticky residue", "Eggs under leaves"], "weight": 30},
+      {"field": "leaf_curling", "value": true, "weight": 15},
+      {"field": "growth_stunted", "value": true, "weight": 10}
+    ]
+  },
+  {
+    "id": "viral_mosaic",
+    "name": "Possible Viral Mosaic Disease",
+    "description": "Viral mosaic disease is possible when mottled leaf patterns, curling, and stunted growth occur, often with pest vectors.",
+    "base_recommendation": "Remove severely infected plants, control insect vectors, avoid taking cuttings from infected plants, and sanitize tools.",
+    "consult_expert_when": "Get expert confirmation because viral diseases can be confused with nutrient problems.",
+    "conditions": [
+      {"field": "mosaic_pattern", "value": true, "weight": 35},
+      {"field": "leaf_curling", "value": true, "weight": 20},
+      {"field": "growth_stunted", "value": true, "weight": 20},
+      {"field": "pest_presence", "value": true, "weight": 10}
+    ]
+  },
+  {
+    "id": "drought_heat_stress",
+    "name": "Possible Drought / Heat Stress",
+    "description": "Heat or drought stress is possible when wilting happens with dry soil and hot weather, without strong pest or spot symptoms.",
+    "base_recommendation": "Water deeply at appropriate times, mulch around the plant, provide temporary shade for sensitive crops, and monitor recovery.",
+    "consult_expert_when": "Seek advice if plants do not recover after proper watering or if root damage is suspected.",
+    "conditions": [
+      {"field": "wilting", "value": true, "weight": 25},
+      {"field": "soil_moisture", "value": "Too dry", "weight": 25},
+      {"field": "weather_condition", "value": "Hot and dry", "weight": 25},
+      {"field": "watering_pattern", "value": "Underwatered", "weight": 15},
+      {"field": "leaf_spots", "value": false, "weight": 5}
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_name }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="brand">CropCare Expert</a>
+    <div class="navlinks">
+      {% if user %}
+        <a href="/diagnose">New Diagnosis</a>
+        <a href="/history">History</a>
+        <form action="/logout" method="post" class="inline-form">
+          <button type="submit" class="link-button">Logout</button>
+        </form>
+      {% else %}
+        <a href="/login">Login</a>
+        <a href="/signup" class="nav-cta">Sign up</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>Rule-based expert system prototype for early crop disease diagnosis. This system supports first-level guidance and does not replace professional agricultural advice.</p>
+  </footer>
+</body>
+</html>

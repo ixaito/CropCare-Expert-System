@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div>
+    <p class="eyebrow">Adaptive consultation</p>
+    <h1>New crop diagnosis</h1>
+    <p class="lead">Answer each question based on what you can observe. The system will ask follow-up questions only when they are relevant.</p>
+  </div>
+</section>
+
+<section class="diagnosis-layout">
+  <div class="panel question-panel">
+    <div id="progressText" class="muted">Preparing questionnaire...</div>
+    <div id="questionBox"></div>
+    <div class="question-actions">
+      <button id="backBtn" class="button secondary" type="button">Back</button>
+      <button id="nextBtn" class="button" type="button">Next</button>
+    </div>
+  </div>
+
+  <div class="panel answers-panel">
+    <h2>Current answers</h2>
+    <div id="answerList" class="answer-list muted">No answers yet.</div>
+  </div>
+</section>
+
+<section id="resultPanel" class="panel result-panel hidden">
+  <h2>Diagnostic decision</h2>
+  <div id="resultContent"></div>
+</section>
+
+<script src="/static/app.js"></script>
+{% endblock %}

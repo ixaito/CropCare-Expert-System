@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="auth-card">
+  <h1>Login</h1>
+  <p class="muted">Access the expert system and your previous diagnosis history.</p>
+  {% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+  {% if success %}<div class="alert success">{{ success }}</div>{% endif %}
+  <form method="post" action="/login" class="form">
+    <label>Email
+      <input type="email" name="email" required autocomplete="email">
+    </label>
+    <label>Password
+      <input type="password" name="password" required autocomplete="current-password">
+    </label>
+    <button type="submit" class="button full">Login</button>
+  </form>
+  <p class="muted center"><a href="/forgot-password">Forgot password?</a></p>
+  <p class="muted center">New user? <a href="/signup">Create an account</a></p>
+</div>
+{% endblock %}
